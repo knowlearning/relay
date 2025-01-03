@@ -15,12 +15,11 @@ const httpFirewallTag = "http-firewall-tag"
 const script = `#!/bin/bash
 
 sudo apt install git
+curl -fsSL https://deno.land/install.sh | sh
 
 git clone git@github.com:knowlearning/relay.git
-
 cd relay
-
-sh ./server.sh
+deno ./server.js
 `
 
 await createFirewallRule('GCP', httpFirewallRule, { project, targetTag: httpFirewallTag })

@@ -29,7 +29,7 @@ if [ "$1" = "production" ]; then
   # gcloud auth application-default set-quota-project knowlearning
 
   # Run the application
-  deno run --allow-net --allow-run index.js
+  deno run --allow-net --allow-run deploy.js
 else
   echo "Usage: $0 production"
 fi
