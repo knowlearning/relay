@@ -14,18 +14,13 @@ const httpFirewallTag = "http-firewall-tag"
 
 const script = `#!/bin/bash
 
-sudo apt install netcat-openbsd
+sudo apt install git
 
-# Simple HTTP Server in Bash
-PORT=80
+git clone git@github.com:knowlearning/relay.git
 
-echo "Starting HTTP server on port $PORT..."
-while true; do
-  # Wait for a connection and respond immediately
-  {
-    echo -e "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nHello, World!";
-  } | sudo nc -N -l -p $PORT
-done
+cd relay
+
+sh ./server.sh
 `
 
 await createFirewallRule('GCP', httpFirewallRule, { project, targetTag: httpFirewallTag })
