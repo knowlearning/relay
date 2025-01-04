@@ -19,7 +19,7 @@ curl -fsSL https://deno.land/install.sh | sudo sh -s -- -y
 
 git clone https://github.com/knowlearning/relay.git
 cd relay
-sudo /home/admin/.deno/bin/deno --allow-net ./server.js
+sudo /root/.deno/bin/deno --allow-net ./server.js
 `
 
 await createFirewallRule('GCP', httpFirewallRule, { project, targetTag: httpFirewallTag })
