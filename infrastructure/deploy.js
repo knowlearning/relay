@@ -18,7 +18,7 @@ sudo apt install git unzip -y
 curl -fsSL https://deno.land/install.sh | sudo sh -s -- -y
 
 git clone https://github.com/knowlearning/relay.git
-cd relay
+cd relay/api
 sudo /root/.deno/bin/deno --allow-net ./server.js
 `
 
