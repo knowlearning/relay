@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$1" = "production" ]; then
+if [ "$1" = "api" ]; then
   while true; do
     # Check if gcloud is already logged in
     GCLOUD_USER=$(gcloud auth list --filter=status:ACTIVE --format="value(account)")
@@ -29,7 +29,7 @@ if [ "$1" = "production" ]; then
   # gcloud auth application-default set-quota-project knowlearning
 
   # Run the application
-  deno run --allow-net --allow-run deploy.js
+  deno run --allow-net --allow-run ./infrastructure/deploy.js
 else
-  echo "Usage: $0 production"
+  echo "Usage: $0 api"
 fi
